@@ -102,10 +102,9 @@ export default function SignupPage() {
         setAccount({
             ...account2,
             [key]: value
-        });
-    
-        nonExistingFunction();
+        })
     }
+    return (
         <>
             <Helmet>
                 <title> Login  </title>

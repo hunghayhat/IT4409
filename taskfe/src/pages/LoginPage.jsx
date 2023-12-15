@@ -40,6 +40,8 @@ const StyledContent = styled('div')(({ theme }) => ({
   padding: theme.spacing(12, 0),
 }));
 
+// ----------------------------------------------------------------------
+
 export default function LoginPage() {
   const mdUp = useResponsive('up', 'md');
   // const { state } = useLocation();
@@ -63,15 +65,10 @@ export default function LoginPage() {
 
         {mdUp && (
           <StyledSection>
-            {/* Thêm điều kiện không chính xác */}
-            {false && (
-              <>
-                <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
-                  Hi, Welcome Back
-                </Typography>
-                <img src="/assets/illustrations/illustration_login.png" alt="login" />
-              </>
-            )}
+            <Typography variant="h3" sx={{ px: 5, mt: 10, mb: 5 }}>
+              Hi, Welcome Back
+            </Typography>
+            <img src="/assets/illustrations/illustration_login.png" alt="login" />
           </StyledSection>
         )}
 
@@ -82,14 +79,30 @@ export default function LoginPage() {
             </Typography>
 
             <Typography variant="body2" sx={{ mb: 5 }}>
-              Do not have an account?{' '}
-              {/* Chỉnh sửa lỗi chính tả ở đây */}
-              <Link to="/signup" variant="subtitle2">
-                Signup
-              </Link>
+            Do not have an account? {''}
+              <Link to={"/signup"} variant="subtitle2">Signup</Link>
             </Typography>
 
-            {/* ... Các thành phần khác của form ... */}
+            <Stack direction="row" spacing={2}>
+              <Button fullWidth size="large" color="inherit" variant="outlined">
+                <Iconify icon="eva:google-fill" color="#DF3E30" width={22} height={22} />
+              </Button>
+
+              <Button fullWidth size="large" color="inherit" variant="outlined">
+                <Iconify icon="eva:facebook-fill" color="#1877F2" width={22} height={22} />
+              </Button>
+
+              <Button fullWidth size="large" color="inherit" variant="outlined">
+                <Iconify icon="eva:twitter-fill" color="#1C9CEA" width={22} height={22} />
+              </Button>
+            </Stack>
+
+            <Divider sx={{ my: 3 }}>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                -
+              </Typography>
+            </Divider>
+            <LoginForm />
           </StyledContent>
         </Container>
       </StyledRoot>

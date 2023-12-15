@@ -23,21 +23,18 @@ export default function LoginForm() {
       const payload = {
         email: username.current.value,
         password: password.current.value
-      };
-
-      // Introducing an error by accessing a non-existing property
-      const nonExistingValue = payload.nonExistingProperty;
+      }
 
       login(payload)
         .then((res) => {
           const token = res.data.token;
           const user = res.data.userInfoDto;
           handleLoggedin(token, user);
-          navigate('/dashboard');
+          navigate('/dashboard')
         })
         .catch((err) => {
           toast.error('Check your account again');
-        });
+        })
     } else {
       toast.error('Check your email again');
     }
@@ -46,7 +43,7 @@ export default function LoginForm() {
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
-  };
+  }
 
   return (
     <>
@@ -62,7 +59,6 @@ export default function LoginForm() {
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
-                  {/* Adjusted icon to make the component render */}
                   <Iconify icon={showPassword ? 'eva:eye-fill' : 'eva:eye-off-fill'} />
                 </IconButton>
               </InputAdornment>
