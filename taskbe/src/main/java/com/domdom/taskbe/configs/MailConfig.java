@@ -14,7 +14,7 @@ public class MailConfig {
         mailSender.setHost("smtp.gmail.com");
         mailSender.setPort(587);
 
-        mailSender.setUsername("ducduc052002@gmail.com");
+        mailSender.setUsername("diegocoshung1919@gmail.com");
         mailSender.setPassword("hfcfqcicvsttxemu");
 
         Properties props = mailSender.getJavaMailProperties();
@@ -23,7 +23,7 @@ public class MailConfig {
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.debug", "true");
 
-        // return mailSender;
+        return mailSender;
     }
 
 }
